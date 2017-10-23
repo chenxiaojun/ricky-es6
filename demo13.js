@@ -39,6 +39,14 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 }
 
 // includes() 判断数组中是否包含给定的值
+[1, 2, 3].includes(2);
+
+console.log('------');
+
+// 数组的空位
+// forEach 方法
+[, 'a'].forEach((x, i) => console.log(i));
+
 
 
 
