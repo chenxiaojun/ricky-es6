@@ -20,3 +20,79 @@ function makeIterator(array) {
         }
     };
 }
+
+console.log('---');
+
+// Iterator接口的关系
+let myIterable = {};
+myIterable[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield 3;
+};
+console.log([...myIterable]);
+
+// 任何数据结构只要部署Iterable接口，就可以完成遍历操作
+// Iterator接口的目的，就是为所有数据结构，提供统一的访问机制，即for...of循环
+// 一种数据结构只要部署了Iterator接口，这种数据结构就是可遍历的
+// 默认的Iterator接口部署在数据结构的Symbol.iterator属性，一个接口只要有iterator属性，就是可遍历的
+// Symbol.iterator是一个预定义好的，类型为Symbol的特殊值，所以要放在方括号内
+const obj = {
+    [Symbol.iterator] : function () {
+        return {
+            next: function () {
+                return {
+                    value: 1,
+                    done: true
+                }
+            }
+        }
+    }
+};
+console.log('-', obj[Symbol.iterator]().next());
+// 因为obj具有Symbol.iterable属性，所以它是可遍历的
+// 执行该方法，会返回一个遍历器对象，对象本身就有next方法
+// 原生具备Iterator接口的数据结构有Array, Map, Set, String, TypedArray, 函数参数, NodeList对象
+let arr = ['a', 'b', 'c'];
+let iter = arr[Symbol.iterator]();
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+
+// someString
+let str = 'hi';
+let iter2 = str[Symbol.iterator]();
+console.log(iter2.next());
+console.log(iter2.next());
+
+for (let i of str) {
+    console.log(i);
+}
+
+for(let i in str) {
+    console.log(i);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
