@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!--注意这里jquery的版本和css，js引入的顺序 -->
+    <link rel="stylesheet" href="./bootstrap-3.3.2.min.css" type="text/css"/>
+    <script type="text/javascript" src="./jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="./bootstrap-3.3.2.min.js"></script>
+
+    <!-- Include the plugin's CSS and JS: -->
+    <!-- <script type="text/javascript" src="./dist/js/bootstrap-multiselect.js"></script> -->
+    <!--无选择提示为中文,只是部分中文 -->
+    <script type="text/javascript" src="./bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="./bootstrap-multiselect.css" type="text/css"/>
+    <script type="text/javascript">
+        console.log("start");
+        $(document).ready(function() {
+            $('#example-multiple').multiselect();
+            $('#example-radio').multiselect();
+            $('#example-multiple-optgroups').multiselect();
+            $('#example-radio-optgroups').multiselect();
+            /*
+             *分组可选，可折叠，全选时不显示，所有option的数量
+             */
+            $('#example-enableClickableOptGroups').multiselect({
+                enableClickableOptGroups: true,
+                selectAllNumber: false
+            });
+            /*
+             *分组可选，可折叠，可全选，右侧显示下拉选项，
+             *触发选择事件，可搜索，可展示已选择option的数量（numberDisplayed）
+             */
+            $('#example-all').multiselect({
+                enableClickableOptGroups: true,
+                enableCollapsibleOptGroups: true,
+                includeSelectAllOption: true,
+                buttonWidth: '400px',
+                dropRight: true,
+                maxHeight: 200,
+                onChange: function(option, checked) {
+                    alert($(option).val());
+                    /*if(条件) {
+                     this.clearSelection();//清除所有选择及显示
+                     }*/
+                },
+                nonSelectedText: '请选择',
+                numberDisplayed: 10,
+                enableFiltering: true,
+                allSelectedText:'全部',
+            });
+
+        });
+    </script>
+</head>
+<body style="margin-left:10;">
+1.多选下拉框：
+
+<select id="example-multiple" multiple="multiple">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>
+<BR/>
+2.单选下拉框：
+
+<select id="example-radio">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>
+<BR/>
+从上面两个来看，能不能多选，主要是multiple="multiple"属性配置...
+
+3.多选分组下拉框：
+
+<select id="example-multiple-optgroups" multiple="multiple">
+    <optgroup label="Group 1" class="group-1">
+        <option value="1-1">Option 1.1</option>
+        <option value="1-2" selected="selected">Option 1.2</option>
+        <option value="1-3" selected="selected">Option 1.3</option>
+    </optgroup>
+    <optgroup label="Group 2" class="group-2">
+        <option value="2-1">Option 2.1</option>
+        <option value="2-2">Option 2.2</option>
+        <option value="2-3">Option 2.3</option>
+    </optgroup>
+</select>
+<BR/>
+4.单选分组下拉框：
+
+<select id="example-radio-optgroups">
+    <optgroup label="Group 1" class="group-1">
+        <option value="1-1">Option 1.1</option>
+        <option value="1-2" selected="selected">Option 1.2</option>
+        <option value="1-3" selected="selected">Option 1.3</option>
+    </optgroup>
+    <optgroup label="Group 2" class="group-2">
+        <option value="2-1">Option 2.1</option>
+        <option value="2-2">Option 2.2</option>
+        <option value="2-3">Option 2.3</option>
+    </optgroup>
+</select>
+<BR/>
+5.分组多选下拉框：
+
+<select id="example-enableClickableOptGroups" multiple="multiple">
+    <optgroup label="Group 1" class="group-1">
+        <option value="1-1">Option 1.1</option>
+        <option value="1-2">Option 1.2</option>
+        <option value="1-3">Option 1.3</option>
+    </optgroup>
+    <optgroup label="Group 2" class="group-2">
+        <option value="2-1" disabled="disabled">Option 2.1</option>
+        <option value="2-2">Option 2.2</option>
+        <option value="2-3">Option 2.3</option>
+    </optgroup>
+</select>
+6.分组多选，可折叠，可全选下拉框：
+
+<select id="example-all" multiple="multiple">
+    <optgroup label="Group 1" class="group-1">
+        <option value="1-1">Option 1.1</option>
+        <option value="1-2" selected="selected">Option 1.2</option>
+        <option value="1-3" selected="selected">Option 1.3</option>
+    </optgroup>
+    <optgroup label="Group 2" class="group-2">
+        <option value="2-1">Option 2.1</option>
+        <option value="2-2">Option 2.2</option>
+        <option value="2-3">Option 2.3</option>
+    </optgroup>
+</select>
+</body>
+</html>
