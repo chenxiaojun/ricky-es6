@@ -1,0 +1,8 @@
+.InputAddOn {
+    border: 1px solid red;
+    display: flex;
+}
+
+.InputAddOn-field {
+    flex: 1;
+}

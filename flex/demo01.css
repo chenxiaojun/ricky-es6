@@ -1,0 +1,165 @@
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    display: flex;
+    /*justify-content: center;*/ /*项目在主轴上左对齐*/
+    /*justify-content: flex-end;*/ /*项目在主轴上右对齐*/
+    /*align-items: center;*/ /*设置交叉对齐方式，可以垂直移动主轴 中间对齐*/
+    /*align-items: flex-start;*/
+
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between; /*两端对齐，项目之间间隔相等*/
+    flex-direction: column-reverse; /*flex-direction属性决定主轴的方向[即项目的排列方向]*/
+    /*align-items: center;*/
+    align-items: flex-end; /*justify-content指定主轴，align-items指定交叉主轴的垂直轴*/
+}
+
+.box3 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box3 .item:nth-child(2) {
+    align-self: flex-end;
+}
+
+.box4 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box4 .item:nth-child(2) {
+    align-self: center;
+}
+
+.box4 .item:nth-child(3) {
+    align-self: flex-end;
+}
+
+.box5 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box5 .item:nth-child(4) {
+    align-self: flex-end;
+}
+
+.box6 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+/**
+    flex-basis 属性定义了分配多余的空间，项目占据的主轴空间(main size)
+ */
+.box6 .column {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box7 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box7 .column {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+}
+
+.box8 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box8 .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box9 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid yellow;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.box9 .column {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+}
+
+.box9 .column:nth-child(2){
+    justify-content: center;
+ }
+
+.box10 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.box10 .column {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
