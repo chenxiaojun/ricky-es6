@@ -8,9 +8,9 @@ function creGallery(){
     desc.setAttribute('id', 'description');
     var text = document.createTextNode('Choose an image');
     desc.appendChild(text);
-    var body = document.body;
-    body.appendChild(img);
-    body.appendChild(desc);
+    gallery = document.getElementById('imageGallery');
+    insertAfterTest(img, gallery);
+    insertAfterTest(desc, img);
 }
 
 //childNodes 属性用来获取所有子节点 包括元素节点，文本节点和属性节点
@@ -53,5 +53,14 @@ function insertBeforeTest(){
     var text = document.createTextNode('Coming..');
     p.appendChild(text);
     gallery.parentNode.insertBefore(p, gallery);
+}
+
+function insertAfterTest(newElement, targetElement){
+    var parent = targetElement.parentNode;
+    if (parent.lastChild === targetElement){
+        parent.appendChild(newElement);
+    }else{
+        parent.insertBefore(newElement, targetElement.nextSibling);
+    }
 }
 
