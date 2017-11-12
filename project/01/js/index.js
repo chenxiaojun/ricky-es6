@@ -1,0 +1,2 @@
+addLoadEvent(highlightpage);
+addLoadEvent(prepareSlideShow);
