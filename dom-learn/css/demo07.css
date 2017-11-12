@@ -58,4 +58,12 @@
     background: rgba(204, 204, 204, 0.32);
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.normal {
+    font-weight: normal;
+}
+
 
